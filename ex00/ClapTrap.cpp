@@ -84,7 +84,7 @@ void	ClapTrap::setAttackDamages(unsigned int amount) {
 ///// MEMBERS FUNCTIONS /////
 
 void	ClapTrap::attack(const std::string& target) {
-	if (this->_hitPoints == 0) {
+	if (this->_hitPoints <= 0) {
 		std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
 	} else if (this->_energyPoints == 0) {
 		std::cout << "ClapTrap " << this->_name << " is out of energy!" << std::endl;
@@ -95,7 +95,7 @@ void	ClapTrap::attack(const std::string& target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	if (this->_hitPoints == 0) {
+	if (this->_hitPoints <= 0) {
 		std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
 	} else {
 		this->_hitPoints -= amount;
@@ -103,7 +103,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	if (this->_hitPoints == 0) {
+	if (this->_hitPoints <= 0) {
 		std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
 	} else if (this->_energyPoints == 0) {
 		std::cout << "ClapTrap " << this->_name << " is out of energy!" << std::endl;
