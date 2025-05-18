@@ -40,3 +40,7 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& other) {
 	}
 	return (*this);
 }
+
+ScavTrap::~ScavTrap(void) {
+	std::cout << "ScavTrap: destructor called" << std::endl;
+}
