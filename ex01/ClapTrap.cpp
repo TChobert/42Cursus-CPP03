@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-///// ORTHODOX CANONICAL FORM /////
+///// CANONICAL FORM /////
 
 ClapTrap::ClapTrap(void) :_name("DefaultClap"), _hitPoints(10), _energyPoints(10),
 							_attackDamages(0) {

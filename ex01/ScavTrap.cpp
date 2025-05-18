@@ -12,6 +12,8 @@
 
 #include "ScavTrap.hpp"
 
+///// CANONICAL FORM /////
+
 ScavTrap::ScavTrap(void) 
 	: ClapTrap() {
 	_name = "Default Scav";
