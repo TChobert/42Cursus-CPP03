@@ -13,9 +13,10 @@
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <cstdlib>
-#include <string>
-#include <iostream>
+# include <cstdlib>
+# include <string>
+# include <iostream>
+# include <climits>
 
 class ClapTrap {
 
@@ -46,6 +47,7 @@ class ClapTrap {
 	void				setHitPoints(unsigned int amount);
 	void				setEnergyPoints(unsigned int amount);
 	void				setAttackDamages(unsigned int amount);
+	bool				isAlive(void) const;
 
 	//Member functions:
 

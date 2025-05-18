@@ -63,6 +63,10 @@ int	ClapTrap::getAttackDamages(void) const {
 	return (_attackDamages);
 }
 
+bool	ClapTrap::isAlive(void) const {
+	return (getHitPoints() > 0);
+}
+
 ///// SETTERS /////
 
 void	ClapTrap::setName(std::string& name) {
@@ -85,32 +89,46 @@ void	ClapTrap::setAttackDamages(unsigned int amount) {
 
 void	ClapTrap::attack(const std::string& target) {
 	if (this->_hitPoints <= 0) {
-		std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " is already dead!" << std::endl;
 	} else if (this->_energyPoints == 0) {
 		std::cout << "ClapTrap " << this->_name << " is out of energy!" << std::endl;
 	} else {
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamages << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing "
+			<< this->_attackDamages << " points of damage!" << std::endl;
 		this->_energyPoints -= 1;
 	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	if (this->_hitPoints <= 0) {
-		std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
+	if (!isAlive()) {
+		std::cout << "ClapTrap " << this->_name << " is already dead!" << std::endl;
+		return ;
+	}
+	if (_hitPoints < static_cast<int>(amount)) {
+		_hitPoints = 0;
+		std::cout << "ClapTrap " << this->_name << " dies!" << std::endl;
 	} else {
 		this->_hitPoints -= amount;
+		std::cout << "ClapTrap " << this->_name << " takes " << amount << " of damages!" << std::endl;
 	}
 }
 
-void	ClapTrap::beRepaired(unsigned int amount) {
-	if (this->_hitPoints <= 0) {
+void ClapTrap::beRepaired(unsigned int amount) {
+	if (!isAlive()) {
 		std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
-	} else if (this->_energyPoints == 0) {
+		return;
+	}
+	if (this->_energyPoints == 0) {
 		std::cout << "ClapTrap " << this->_name << " is out of energy!" << std::endl;
+		return;
+	}
+
+	if (_hitPoints > INT_MAX - static_cast<int>(amount)) {
+		_hitPoints = INT_MAX;
+		std::cout << "ClapTrap " << this->_name << " is repaired to max hit points!" << std::endl;
 	} else {
 		this->_hitPoints += amount;
-		if (this->_energyPoints > 0) {
-			this->_energyPoints -= 1;
-		}
+		std::cout << "ClapTrap " << this->_name << " restores itself for " << amount << " hit points!" << std::endl;
 	}
+	this->_energyPoints -= 1;
 }

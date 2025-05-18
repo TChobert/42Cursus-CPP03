@@ -32,17 +32,17 @@ int	main(void) {
 	copyTrap.setAttackDamages(6);
 
 	// Round 1
-	clapOne.attack("copyTrap");
+	clapOne.attack(copyTrap.getName());
 	copyTrap.takeDamage(clapOne.getAttackDamages());
 	std::cout << "copyTrap HP: " << copyTrap.getHitPoints() << "\n" << std::endl;
 
 	// Round 2
-	copyTrap.attack("clapOne");
+	copyTrap.attack(clapOne.getName());
 	clapOne.takeDamage(copyTrap.getAttackDamages());
 	std::cout << "clapOne HP: " << clapOne.getHitPoints() << "\n" << std::endl;
 
 	// Round 3
-	cloneTrap.attack("copyTrap");
+	cloneTrap.attack(copyTrap.getName());
 	copyTrap.takeDamage(cloneTrap.getAttackDamages());
 	std::cout << "copyTrap HP: " << copyTrap.getHitPoints() << "\n" << std::endl;
 
@@ -51,14 +51,14 @@ int	main(void) {
 	std::cout << "copyTrap repairs and now has " << copyTrap.getHitPoints() << " HP.\n" << std::endl;
 
 	// Round 5
-	clapTwo.attack("cloneTrap");
+	clapTwo.attack(cloneTrap.getName());
 	cloneTrap.takeDamage(clapTwo.getAttackDamages());
 	std::cout << "cloneTrap HP: " << cloneTrap.getHitPoints() << "\n" << std::endl;
 
 	// Test de la mort
 	std::cout << "\n-- copyTrap is targeted for destruction --" << std::endl;
 	copyTrap.takeDamage(100);
-	copyTrap.attack("clapOne");
+	copyTrap.attack(clapOne.getName());
 	copyTrap.beRepaired(5);
 	std::cout << "copyTrap HP: " << copyTrap.getHitPoints() << "\n" << std::endl;
 
@@ -75,15 +75,15 @@ int	main(void) {
 	clapTwo.setEnergyPoints(5);
 	clapTwo.setAttackDamages(8);
 	std::cout << "clapTwo => HP: " << clapTwo.getHitPoints()
-	          << ", Energy: " << clapTwo.getEnergyPoints()
-	          << ", Damage: " << clapTwo.getAttackDamages() << "\n" << std::endl;
+				<< ", Energy: " << clapTwo.getEnergyPoints()
+				<< ", Damage: " << clapTwo.getAttackDamages() << "\n" << std::endl;
 
 	// Test affectation
 	std::cout << "-- Assignment test --" << std::endl;
 	ClapTrap another = clapTwo;
 	std::string newName = "AnotherClap";
 	another.setName(newName);
-	another.attack("clapOne");
+	another.attack(clapOne.getName());
 
 	// Destructeur automatique
 	std::cout << "\n-- Temporary ClapTrap block --" << std::endl;
