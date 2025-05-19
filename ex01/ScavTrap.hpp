@@ -17,6 +17,10 @@
 
 class	ScavTrap: public ClapTrap {
 
+	private:
+
+	bool	_isInGateKeep;
+
 	public:
 
 	// Canonical form
@@ -26,6 +30,11 @@ class	ScavTrap: public ClapTrap {
 	ScavTrap(const ScavTrap& other);
 	ScavTrap&	operator=(const ScavTrap& other);
 	~ScavTrap(void);
+
+	// Members functions
+
+	void	attack(const std::string& target);
+	void	guardGate(void);
 };
 
 #endif
