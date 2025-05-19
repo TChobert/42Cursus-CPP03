@@ -46,7 +46,7 @@ class ClapTrap {
 	void				setName(std::string name);
 	void				setHitPoints(unsigned int amount);
 	void				setEnergyPoints(unsigned int amount);
-	void				setAttackDamages(unsigned int amount);
+	void				setAttackDamage(unsigned int amount);
 	bool				isAlive(void) const;
 
 	//Member functions:

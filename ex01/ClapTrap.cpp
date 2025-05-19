@@ -15,18 +15,18 @@
 ///// CANONICAL FORM /////
 
 ClapTrap::ClapTrap(void) :_name("DefaultClap"), _hitPoints(10), _energyPoints(10),
-							_attackDamages(0) {
+							_attackDamage(0) {
 	std::cout << "ClapTrap: default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) :_name(name), _hitPoints(10), _energyPoints(10),
-					_attackDamages(0) {
+					_attackDamage(0) {
 	std::cout << "ClapTrap: constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) :_name(other._name), _hitPoints(other._hitPoints),
 											_energyPoints(other._energyPoints),
-											_attackDamages(other._attackDamages) {
+											_attackDamage(other._attackDamage) {
 	std::cout << "ClapTrap: copy constructor called" << std::endl;
 }
 
@@ -35,7 +35,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& other) {
 		this->_name = other._name;
 		this->_hitPoints = other._hitPoints;
 		this->_energyPoints = other._energyPoints;
-		this->_attackDamages = other._attackDamages;
+		this->_attackDamage = other._attackDamage;
 	}
 	std::cout << "ClapTrap: assignement operator called" << std::endl;
 	return (*this);
@@ -60,7 +60,7 @@ int	ClapTrap::getEnergyPoints(void) const {
 }
 
 int	ClapTrap::getAttackDamages(void) const {
-	return (_attackDamages);
+	return (_attackDamage);
 }
 
 bool	ClapTrap::isAlive(void) const {
@@ -81,8 +81,8 @@ void	ClapTrap::setEnergyPoints(unsigned int amount) {
 	_energyPoints = amount;
 }
 
-void	ClapTrap::setAttackDamages(unsigned int amount) {
-	_attackDamages = amount;
+void	ClapTrap::setAttackDamage(unsigned int amount) {
+	_attackDamage = amount;
 }
 
 ///// MEMBERS FUNCTIONS /////
@@ -94,7 +94,7 @@ void	ClapTrap::attack(const std::string& target) {
 		std::cout << "ClapTrap " << this->_name << " is out of energy!" << std::endl;
 	} else {
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing "
-			<< this->_attackDamages << " points of damage!" << std::endl;
+			<< this->_attackDamage << " points of damage!" << std::endl;
 		this->_energyPoints -= 1;
 	}
 }

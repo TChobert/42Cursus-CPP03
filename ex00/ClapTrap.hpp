@@ -25,7 +25,7 @@ class ClapTrap {
 	std::string			_name;
 	int					_hitPoints;
 	int					_energyPoints;
-	int					_attackDamages;
+	int					_attackDamage;
 
 	public:
 
@@ -42,11 +42,11 @@ class ClapTrap {
 	const std::string&	getName(void) const;
 	int					getHitPoints(void) const;
 	int					getEnergyPoints(void) const;
-	int					getAttackDamages(void) const;
+	int					getAttackDamage(void) const;
 	void				setName(std::string name);
 	void				setHitPoints(unsigned int amount);
 	void				setEnergyPoints(unsigned int amount);
-	void				setAttackDamages(unsigned int amount);
+	void				setAttackDamage(unsigned int amount);
 	bool				isAlive(void) const;
 
 	//Member functions:
