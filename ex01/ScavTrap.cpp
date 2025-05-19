@@ -40,7 +40,7 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& other) {
 	if (this != &other) {
-		std::cout << "ClapTrap: assignement operator called" << std::endl;
+		std::cout << "ScavTrap: assignement operator called" << std::endl;
 		ClapTrap::operator=(other);
 		this->_isInGateKeep = other._isInGateKeep;
 	}
