@@ -34,6 +34,8 @@ int main() {
 
 	std::cout << "=== Tests de copie et d'assignation ===" << std::endl;
 	FragTrap ftCopy(ft);
+	FragTrap ftAssign;
+	ftAssign = ft;
 	ScavTrap stAssign;
 	stAssign = st;
 	std::cout << std::endl;
