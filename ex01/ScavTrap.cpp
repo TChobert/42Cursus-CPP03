@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(void)
 	_name = "Default Scav";
 	_hitPoints = 100;
 	_energyPoints = 50;
-	_attackDamages = 20;
+	_attackDamage = 20;
 	_isInGateKeep = false;
 	std::cout << "ScavTrap: default constructor called" << std::endl;
 }
@@ -28,9 +28,9 @@ ScavTrap::ScavTrap(const std::string&name)
 	: ClapTrap(name) {
 	_hitPoints = 100;
 	_energyPoints = 50;
-	_attackDamages = 20;
+	_attackDamage = 20;
 	_isInGateKeep = false;
-	std::cout << "ScavTrap: constructor called" << std::endl;
+	std::cout << "ScavTrap: parametrized constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
@@ -60,7 +60,7 @@ void	ScavTrap::attack(const std::string& target) {
 		std::cout << "ScavTrap " << this->_name << " is out of energy!" << std::endl;
 	} else {
 		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing "
-			<< this->_attackDamages << " points of damage!" << std::endl;
+			<< this->_attackDamage << " points of damage!" << std::endl;
 		this->_energyPoints -= 1;
 	}
 }
