@@ -16,14 +16,14 @@ int main(void) {
 	ClapTrap a("Alpha");
 	ClapTrap b("Bravo");
 
-	a.setAttackDamages(5);
-	b.setAttackDamages(7);
+	a.setAttackDamage(5);
+	b.setAttackDamage(7);
 
 	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamages());
+	b.takeDamage(a.getAttackDamage());
 
 	b.attack(a.getName());
-	a.takeDamage(b.getAttackDamages());
+	a.takeDamage(b.getAttackDamage());
 
 	a.beRepaired(3);
 	b.beRepaired(10);
