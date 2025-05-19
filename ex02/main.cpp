@@ -12,26 +12,32 @@
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-	std::cout << "=== Test Constructeurs ===" << std::endl;
-	ScavTrap s1;	// constructeur par défaut
-	ScavTrap s2("Guardian");	// constructeur avec nom
-	ScavTrap s3 = s2;	// constructeur de copie
+	std::cout << "=== Création d'un ClapTrap ===" << std::endl;
+	ClapTrap ct("Clappy");
+	ct.attack("dummy");
+	std::cout << std::endl;
 
-	std::cout << "\n=== Test Assignation ===" << std::endl;
-	s1 = s2;	// opérateur d'affectation
+	std::cout << "=== Création d'un ScavTrap ===" << std::endl;
+	ScavTrap st("Scavvy");
+	st.attack("target1");
+	st.guardGate();
+	std::cout << std::endl;
 
-	std::cout << "\n=== Test attack() ===" << std::endl;
-	s2.attack("Target1");
-	s2.attack("Target2");
+	std::cout << "=== Création d'un FragTrap ===" << std::endl;
+	FragTrap ft("Fraggy");
+	ft.attack("target2");
+	ft.highFivesGuys();
+	std::cout << std::endl;
 
-	std::cout << "\n=== Test guardGate() ===" << std::endl;
-	s2.guardGate();	// test du mode spécial
-	s2.guardGate(); // bis
-	s1.guardGate(); //s1
-	s3.guardGate(); //s3
+	std::cout << "=== Tests de copie et d'assignation ===" << std::endl;
+	FragTrap ftCopy(ft);
+	ScavTrap stAssign;
+	stAssign = st;
+	std::cout << std::endl;
 
-	std::cout << "\n=== Fin des tests ===" << std::endl;
-	return (EXIT_SUCCESS);
+	std::cout << "=== Fin du programme, destructeurs ===" << std::endl;
+	return 0;
 }
