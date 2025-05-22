@@ -8,11 +8,11 @@ RESET =\033[0m
 
 ## TARGET ##
 
-NAME := FragTrapTest
+NAME := DiamondTrapTest
 
 ## COMPILATION ##
 
-CC := g++
+CC := c++
 
 CFLAGS += -Wall
 CFLAGS += -Wextra
@@ -34,6 +34,7 @@ SRCS += main.cpp
 SRCS += ClapTrap.cpp
 SRCS += ScavTrap.cpp
 SRCS += FragTrap.cpp
+SRCS += DiamondTrap.cpp
 
 ## INCLUDES ##
 
@@ -42,6 +43,7 @@ INCLUDES_DIR := .
 INCLUDES += ClapTrap.hpp
 INCLUDES += ScavTrap.hpp
 INCLUDES += FragTrap.hpp
+INCLUDES += DiamondTrap.hpp
 
 ## OBJECTS ##
 
@@ -53,7 +55,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -I$(INCLUDES_DIR) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)FrapTrap test compiled!$(RESET)"
+	@echo "$(GREEN)DiamondTrap test compiled!$(RESET)"
 
 $(OBJS): %.o: %.cpp
 	$(CC) $(CFLAGS) -I$(INCLUDES_DIR) -c $< -o $@

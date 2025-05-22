@@ -12,7 +12,7 @@ NAME := FragTrapTest
 
 ## COMPILATION ##
 
-CC := g++
+CC := c++
 
 CFLAGS += -Wall
 CFLAGS += -Wextra

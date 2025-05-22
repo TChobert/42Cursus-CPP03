@@ -10,36 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-	std::cout << "=== Création d'un ClapTrap ===" << std::endl;
-	ClapTrap ct("Clappy");
-	ct.attack("dummy");
-	std::cout << std::endl;
+	std::cout << "=== Default DiamondTrap ===" << std::endl;
+	DiamondTrap defaultDiamond;
+	defaultDiamond.whoAmI();
+	defaultDiamond.attack("Enemy1");
 
-	std::cout << "=== Création d'un ScavTrap ===" << std::endl;
-	ScavTrap st("Scavvy");
-	st.attack("target1");
-	st.guardGate();
-	std::cout << std::endl;
+	std::cout << "\n=== Parametrized DiamondTrap ===" << std::endl;
+	DiamondTrap namedDiamond("Optimus");
+	namedDiamond.whoAmI();
+	namedDiamond.attack("Enemy2");
 
-	std::cout << "=== Création d'un FragTrap ===" << std::endl;
-	FragTrap ft("Fraggy");
-	ft.attack("target2");
-	ft.highFivesGuys();
-	std::cout << std::endl;
+	std::cout << "\n=== Copy DiamondTrap ===" << std::endl;
+	DiamondTrap copyDiamond(namedDiamond);
+	copyDiamond.whoAmI();
+	copyDiamond.attack("Enemy3");
 
-	std::cout << "=== Tests de copie et d'assignation ===" << std::endl;
-	FragTrap ftCopy(ft);
-	FragTrap ftAssign;
-	ftAssign = ft;
-	ScavTrap stAssign;
-	stAssign = st;
-	std::cout << std::endl;
+	std::cout << "\n=== Assignment DiamondTrap ===" << std::endl;
+	DiamondTrap assignDiamond;
+	assignDiamond = namedDiamond;
+	assignDiamond.whoAmI();
+	assignDiamond.attack("Enemy4");
 
-	std::cout << "=== Fin du programme, destructeurs ===" << std::endl;
-	return 0;
+	return (EXIT_SUCCESS);
 }
